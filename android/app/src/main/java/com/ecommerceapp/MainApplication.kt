@@ -27,6 +27,11 @@ class MainApplication : Application(), ReactApplication {
 
         override val isNewArchEnabled: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
         override val isHermesEnabled: Boolean = BuildConfig.IS_HERMES_ENABLED
+
+        override fun getJSBundleFile(): String {
+          val port = if (BuildConfig.DEBUG) "8082" else "8081"
+          return "http://localhost:$port/index.bundle?platform=android&dev=true&minify=false"
+        }
       }
 
   override val reactHost: ReactHost
@@ -41,3 +46,4 @@ class MainApplication : Application(), ReactApplication {
     }
   }
 }
+
