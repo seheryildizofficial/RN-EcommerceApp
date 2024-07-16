@@ -3,9 +3,10 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import {Button} from '@ui-kitten/components';
 import Icon from 'react-native-vector-icons/AntDesign';
+import {LOGIN} from '../../utils/routes';
 
 const Cart = ({navigation}) => {
-  const {isLogin} = useSelector(state => state.auth);
+  const {isLogin, token} = useSelector(state => state.auth);
   return (
     <View style={styles.container}>
       {isLogin ? (
@@ -19,7 +20,7 @@ const Cart = ({navigation}) => {
             Lütfen Giriş Yapınız
           </Text>
           <Button
-            onPress={() => navigation.navigate}
+            onPress={() => navigation.navigate(LOGIN)}
             style={styles.button}
             appearance="filled">
             Giriş yap

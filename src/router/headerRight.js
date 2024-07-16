@@ -12,21 +12,23 @@ const HeaderRight = ({navigation}) => {
     <View style={styles.container}>
       <Pressable onPress={() => navigation.navigate(CART)}>
         <Icon size={30} color={AppColors.PRIMARY} name={'basket'} />
-        <View
-          style={{
-            position: 'absolute',
-            right: -5,
-            backgroundColor: AppColors.PRIMARY,
-            padding: 3,
-            borderRadius: 100,
-            width: 20,
-            height: 20,
-            justifyContent: 'center',
-            alignItems: 'center',
-            top: -5,
-          }}>
-          <Text style={{color: AppColors.WHITE}}>{count}</Text>
-        </View>
+        {count > 0 && (
+          <View
+            style={{
+              position: 'absolute',
+              right: -5,
+              backgroundColor: AppColors.PRIMARY,
+              padding: 3,
+              borderRadius: 100,
+              width: 20,
+              height: 20,
+              justifyContent: 'center',
+              alignItems: 'center',
+              top: -5,
+            }}>
+            <Text style={{color: AppColors.WHITE}}>{count}</Text>
+          </View>
+        )}
       </Pressable>
     </View>
   );
